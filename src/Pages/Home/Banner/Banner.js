@@ -13,17 +13,17 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const images = [
   {
     imgPath:
-      'https://i.ibb.co/z7v3VYn/banner1.jpg',
+      'https://i.ibb.co/HxMtJ0M/motocross-g5f7cbd398-1280.jpg',
   },
   {
    
     imgPath:
-      'https://i.ibb.co/BGtcy2q/banner2.jpg',
+      'https://i.ibb.co/zPs90rV/banner2.jpg',
   },
   {
    
     imgPath:
-      'https://i.ibb.co/186TjcV/banner3.jpg',
+      'https://i.ibb.co/FnC3CPP/banner3.jpg',
   },
   {
   

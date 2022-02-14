@@ -46,6 +46,7 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import MakeAdmin from './../MakeAdmin/MakeAdmin';
 import useAuth from './../../../hooks/useAuth';
 import nazmul from '../../../Images/nazmul.jpg'
+import AdminRoute from './../../Login/AdminRoute/AdminRoute';
 
 
 const drawerWidth = 240;
@@ -86,31 +87,39 @@ export default function DashBoard(props: Props) {
              <DashboardIcon>
                <InboxIcon />
              </DashboardIcon>
-             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/dashboardhome`}><Button color='inherit'>DashBoard</Button></Link>
+             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/`}><Button color='inherit'>DashBoard</Button></Link>
            </ListItemButton>
          </ListItem>
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <PaymentIcon>
-                <InboxIcon />
-              </PaymentIcon>
-              <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/pay`}><Button color='inherit'>Pay</Button></Link>
-            </ListItemButton>
-          </ListItem> 
-
-
-          <ListItem disablePadding>
+         {
+           !admin &&
+           <ListItem disablePadding>
            <ListItemButton>
-             <AgricultureIcon>
+             <PaymentIcon>
                <InboxIcon />
-             </AgricultureIcon>
-             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/myOrders`}><Button color='inherit'>My Orders</Button></Link>
+             </PaymentIcon>
+             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/pay`}><Button color='inherit'>Pay</Button></Link>
            </ListItemButton>
-         </ListItem>
+         </ListItem> 
+         }
 
 
-         <ListItem disablePadding>
+        {
+          !admin &&
+          <ListItem disablePadding>
+          <ListItemButton>
+            <AgricultureIcon>
+              <InboxIcon />
+            </AgricultureIcon>
+            <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/myOrders`}><Button color='inherit'>My Orders</Button></Link>
+          </ListItemButton>
+        </ListItem>
+        }
+
+
+         {
+           !admin &&
+           <ListItem disablePadding>
           <ListItemButton>
             <ReviewsIcon>
               <InboxIcon />
@@ -118,43 +127,57 @@ export default function DashBoard(props: Props) {
             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/reviews`}><Button color='inherit'>Reviews</Button></Link>
           </ListItemButton>
         </ListItem>
+         }
 
 
-        <ListItem disablePadding>
-            <ListItemButton>
-              <ReorderIcon>
-                <InboxIcon />
-              </ReorderIcon>
-              <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/ManageAllOrder`}><Button color='inherit'>Manage Orders</Button></Link>
-            </ListItemButton>
-          </ListItem>
+       {
+         admin &&
+         <ListItem disablePadding>
+         <ListItemButton>
+           <ReorderIcon>
+             <InboxIcon />
+           </ReorderIcon>
+           <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/ManageAllOrder`}><Button color='inherit'>Manage Orders</Button></Link>
+         </ListItemButton>
+       </ListItem>
+       }
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <AddPhotoAlternateIcon>
-                <InboxIcon />
-              </AddPhotoAlternateIcon>
-              <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/addProduct`}><Button color='inherit'>Add Products</Button></Link>
-            </ListItemButton>
-          </ListItem>
+         {
+           admin && 
+           <ListItem disablePadding>
+           <ListItemButton>
+             <AddPhotoAlternateIcon>
+               <InboxIcon />
+             </AddPhotoAlternateIcon>
+             <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/addProduct`}><Button color='inherit'>Add Products</Button></Link>
+           </ListItemButton>
+         </ListItem>
+         }
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <SupervisorAccountIcon>
-                <InboxIcon />
-              </SupervisorAccountIcon>
-              <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/makeAdmin`}><Button color='inherit'>Make Admin</Button></Link>
-            </ListItemButton>
-          </ListItem>
+
+         {
+           !admin &&
+           <ListItem disablePadding>
+           <ListItemButton>
+             <SupervisorAccountIcon>
+               <InboxIcon />
+             </SupervisorAccountIcon>
+             <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/makeAdmin`}><Button color='inherit'>Make Admin</Button></Link>
+           </ListItemButton>
+         </ListItem>
+         }
          
-          <ListItem disablePadding>
-            <ListItemButton>
-              <SupervisorAccountIcon>
-                <InboxIcon />
-              </SupervisorAccountIcon>
-              <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/manageProduct`}><Button color='inherit'>Manage Products</Button></Link>
-            </ListItemButton>
-          </ListItem>
+         {
+           admin &&
+           <ListItem disablePadding>
+           <ListItemButton>
+             <SupervisorAccountIcon>
+               <InboxIcon />
+             </SupervisorAccountIcon>
+             <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/manageProduct`}><Button color='inherit'>Manage Products</Button></Link>
+           </ListItemButton>
+         </ListItem>
+         }
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -257,19 +280,19 @@ export default function DashBoard(props: Props) {
               </Route>
           
           
-              <Route path={`${path}/ManageAllOrder`}>
+              <AdminRoute path={`${path}/ManageAllOrder`}>
                <ManageAllOrder></ManageAllOrder>
-              </Route>
+              </AdminRoute>
             
             
-              <Route path={`${path}/addProduct`}>
+              <AdminRoute path={`${path}/addProduct`}>
                <AddProduct></AddProduct>
-              </Route>
+              </AdminRoute>
             
 
-              <Route path={`${path}/manageProduct`}>
+              <AdminRoute path={`${path}/manageProduct`}>
                <ManageProducts></ManageProducts>
-              </Route>
+              </AdminRoute>
            
            
               <Route path={`${path}/makeAdmin`}>
