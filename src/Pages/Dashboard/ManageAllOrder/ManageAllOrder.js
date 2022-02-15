@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -33,20 +34,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
   
-  // function createData(Name, Email, Details, Price, Address, Status, Delete) {
-  //   return { Name, Email, Details, Price, Address, Status, Delete };
-  // }
-  
-  // const myOrder = [
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  // ];
-
 const ManageAllOrder = () => {
     // const {id}=useParams();
     const [manageOrder,setManageOrder]=useState([])
@@ -83,7 +70,7 @@ const ManageAllOrder = () => {
                 <StyledTableCell align="right">{row?.addUser?.title}</StyledTableCell>
                 <StyledTableCell align="right">{row?.addUser?.price}</StyledTableCell>
                 <StyledTableCell align="right">{row?.addUser?.address}</StyledTableCell>
-                <StyledTableCell align="right">{row.Status}<Button variant='contained'>Status</Button></StyledTableCell>
+                <Link style={{textDecoration:'none', fontWeight:600}} to={`/updateManageAllOrder/id}`}  ><Button variant="contained">Update</Button></Link>
                 <StyledTableCell align="right">{row.Delete}</StyledTableCell>
               </StyledTableRow>
             ))}

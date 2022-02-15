@@ -15,7 +15,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Avatar, ListItemButton  } from '@mui/material';
-import DraftsIcon from '@mui/icons-material/Drafts';
 import Button from '@mui/material/Button';
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
@@ -42,11 +41,10 @@ import AddReviews from '../AddReviews/AddReviews';
 import Pay from '../Pay/Pay';
 import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
 import AddProduct from '../AddProduct/AddProduct';
-import ManageProducts from '../ManageProducts/ManageProducts';
 import MakeAdmin from './../MakeAdmin/MakeAdmin';
 import useAuth from './../../../hooks/useAuth';
 import nazmul from '../../../Images/nazmul.jpg'
-import AdminRoute from './../../Login/AdminRoute/AdminRoute';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 
 const drawerWidth = 240;
@@ -87,12 +85,11 @@ export default function DashBoard(props: Props) {
              <DashboardIcon>
                <InboxIcon />
              </DashboardIcon>
-             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/`}><Button color='inherit'>DashBoard</Button></Link>
+             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/dashboardhome`}><Button color='inherit'>DashBoard</Button></Link>
            </ListItemButton>
          </ListItem>
 
-         {
-           !admin &&
+       
            <ListItem disablePadding>
            <ListItemButton>
              <PaymentIcon>
@@ -101,11 +98,11 @@ export default function DashBoard(props: Props) {
              <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/pay`}><Button color='inherit'>Pay</Button></Link>
            </ListItemButton>
          </ListItem> 
-         }
+      
 
 
-        {
-          !admin &&
+        
+         
           <ListItem disablePadding>
           <ListItemButton>
             <AgricultureIcon>
@@ -114,11 +111,10 @@ export default function DashBoard(props: Props) {
             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/myOrders`}><Button color='inherit'>My Orders</Button></Link>
           </ListItemButton>
         </ListItem>
-        }
+       
 
 
-         {
-           !admin &&
+       
            <ListItem disablePadding>
           <ListItemButton>
             <ReviewsIcon>
@@ -127,11 +123,10 @@ export default function DashBoard(props: Props) {
             <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/reviews`}><Button color='inherit'>Reviews</Button></Link>
           </ListItemButton>
         </ListItem>
-         }
+       
 
 
-       {
-         admin &&
+     
          <ListItem disablePadding>
          <ListItemButton>
            <ReorderIcon>
@@ -140,10 +135,8 @@ export default function DashBoard(props: Props) {
            <Link style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/ManageAllOrder`}><Button color='inherit'>Manage Orders</Button></Link>
          </ListItemButton>
        </ListItem>
-       }
-
-         {
-           admin && 
+       
+ 
            <ListItem disablePadding>
            <ListItemButton>
              <AddPhotoAlternateIcon>
@@ -152,11 +145,10 @@ export default function DashBoard(props: Props) {
              <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/addProduct`}><Button color='inherit'>Add Products</Button></Link>
            </ListItemButton>
          </ListItem>
-         }
+       
 
 
-         {
-           !admin &&
+         
            <ListItem disablePadding>
            <ListItemButton>
              <SupervisorAccountIcon>
@@ -165,10 +157,9 @@ export default function DashBoard(props: Props) {
              <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/makeAdmin`}><Button color='inherit'>Make Admin</Button></Link>
            </ListItemButton>
          </ListItem>
-         }
+        
          
-         {
-           admin &&
+       
            <ListItem disablePadding>
            <ListItemButton>
              <SupervisorAccountIcon>
@@ -177,7 +168,7 @@ export default function DashBoard(props: Props) {
              <Link  style={{textDecoration:'none', color:'gray', fontWeight:700}} to={`${url}/manageProduct`}><Button color='inherit'>Manage Products</Button></Link>
            </ListItemButton>
          </ListItem>
-         }
+      
 
           <ListItem disablePadding>
             <ListItemButton>
@@ -280,19 +271,19 @@ export default function DashBoard(props: Props) {
               </Route>
           
           
-              <AdminRoute path={`${path}/ManageAllOrder`}>
+              <Route path={`${path}/ManageAllOrder`}>
                <ManageAllOrder></ManageAllOrder>
-              </AdminRoute>
+              </Route>
             
             
-              <AdminRoute path={`${path}/addProduct`}>
+              <Route path={`${path}/addProduct`}>
                <AddProduct></AddProduct>
-              </AdminRoute>
+              </Route>
             
 
-              <AdminRoute path={`${path}/manageProduct`}>
+              <Route path={`${path}/manageProduct`}>
                <ManageProducts></ManageProducts>
-              </AdminRoute>
+              </Route>
            
            
               <Route path={`${path}/makeAdmin`}>

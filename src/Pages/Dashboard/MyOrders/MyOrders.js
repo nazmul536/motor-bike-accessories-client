@@ -32,19 +32,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
   
-  // function createData(Name, Email, Details, Price, Address, Status, Delete) {
-  //   return { Name, Email, Details, Price, Address, Status, Delete };
-  // }
-  
-  // const myOrder = [
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  //   createData(),
-  // ];
 
 const MyOrders = () => {
     // const {id}=useParams();
@@ -66,12 +53,11 @@ const MyOrders = () => {
           <TableHead>
             <TableRow>
               <StyledTableCell>Name</StyledTableCell>
-              <StyledTableCell align="center">Email</StyledTableCell>
-              <StyledTableCell align="center">Products</StyledTableCell>
-              <StyledTableCell align="center">Price</StyledTableCell>
-              <StyledTableCell align="center">Address</StyledTableCell>
-              {/* <StyledTableCell align="right">Status</StyledTableCell>
-              <StyledTableCell align="right">Delete</StyledTableCell> */}
+              <StyledTableCell align="right">Email</StyledTableCell>
+              <StyledTableCell align="right">Title</StyledTableCell>
+              <StyledTableCell align="right">Price</StyledTableCell>
+              <StyledTableCell align="right">Address</StyledTableCell>
+           
             </TableRow>
           </TableHead>
           <TableBody>

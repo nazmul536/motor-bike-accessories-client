@@ -12,6 +12,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard'
 import ExploreProducts from "./Pages/ExploreProducts/ExploreProducts/ExploreProducts";
 import AddOrderDetails from "./Pages/Home/AddOrderDetails/AddOrderDetails";
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import UpdateManageAllOrder from "./Pages/Dashboard/UpdateManageAllOrder/UpdateManageAllOrder";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/exploreproducts'>
           <ExploreProducts></ExploreProducts>
+          </Route>
+          <Route path='/updateManageAllOrder/:id'>
+         <UpdateManageAllOrder/>
           </Route>
           <PrivateRoute path='/addOrderDetails/:id'>
           <AddOrderDetails></AddOrderDetails>
